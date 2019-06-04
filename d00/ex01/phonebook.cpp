@@ -10,11 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include "Contact.hpp"
+#include "PhoneBook.class.hpp"
 
-int main(void){
+int main(void)
+{
     PhoneBook contact[8];
     int index = 0;
+    std::string command;
+
+    while (true)
+    {
+
+        std::cout << "Enter command: ";
+        std::getline(std::cin, command);
+    }
 }

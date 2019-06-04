@@ -12,11 +12,12 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "PhoneBook.class.hpp"
 
 PhoneBook::PhoneBook(void){}
 
-void PhoneBook::add(){
+void PhoneBook::add(void){
 	std::cout<<"First Name: ";
 	std::getline(std::cin, this->_firstName);
 
@@ -51,9 +52,23 @@ void PhoneBook::add(){
 	std::getline(std::cin, this->_darkSecret);
 }
 
-void PhoneBook::search(){
+void PhoneBook::search(void){
+	std::string fName = this->_firstName;
+	std::string lName = this->_lastName;
+	std::string nName = this->_nickName;
 
+	if (fName.size() > 10)
+		fName.replace(9, 1,'.',1);
+
+	if (lName.size() > 10)
+		lName.replace(9, 10, '.',1);
+	
+	if (nName.size() > 10)
+		nName.replace(9, 10, '.',1);
+
+	std::cout << std::setw(10) << fName << "|";
+	std::cout << std::setw(10) << lName << "|";
+	std::cout << std::setw(10) << nName << std::endl;
 }
-
 
 PhoneBook::~PhoneBook(void){}

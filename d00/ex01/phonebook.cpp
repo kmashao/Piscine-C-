@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
+#include <iostream>
+#include <iomanip>
 
 int main(void)
 {
@@ -23,5 +25,32 @@ int main(void)
 
         std::cout << "Enter command: ";
         std::getline(std::cin, command);
+        if (std::cin.eof())
+            break;
+        for (int i = 0; command[i] != 0; i++)
+            command[i] = toupper(command[i]);
+        if (command == "ADD"){
+            if (index == 8){
+                std::cout << "Phonebook is full."<<std::endl;
+                continue;
+            }
+            contact[index].add();
+            index++;
+        }
+        else if(command == "SEARCH"){
+            if (index == 0){
+                std::cout << "Phonebook is empty." << std::endl;
+                continue;
+            }
+            for (int i = 0; i < index; i++){
+                std::cout << std::setw(10) << i << "|";
+                contact[i].search();
+            }
+        }
+        else if (command == "EXIT")
+            break;
+        else
+            continue;    
     }
+    return (0);
 }

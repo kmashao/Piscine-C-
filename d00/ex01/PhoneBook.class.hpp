@@ -14,19 +14,17 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
-#include <iomanip>
+#include <string>
 
 class PhoneBook
 {
 
 public:
-    PhoneBook::PhoneBook(void);
-    PhoneBook::~PhoneBook(void);
+    PhoneBook(void);
+    ~PhoneBook(void);
 
-    void add();
-    void search();
-
-    static int inst_n;
+    void add(void);
+    void search(void);
 
     std::string _firstName;
     std::string _lastName;
